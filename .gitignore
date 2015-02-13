@@ -2,4 +2,5 @@
 /input/
 /output/
 /raw_data/
-
+.Rapp.history
+.Rhistory

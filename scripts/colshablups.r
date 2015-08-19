@@ -120,7 +120,7 @@ colsha$shelf <- sub("(3)(\\w)(\\d)(\\d+)","\\3", colsha$flatbarcode)
 colsha$shelf
 str(colsha)
 dim(colsha)
-colsha <- colsha[,c(1,21,2:20)]
+colsha <- colsha[,c(1,22,2:21)]
 head(colsha)
 
 
@@ -183,6 +183,7 @@ colnames(colsha)
 #######
 #######
 library(lme4)
+
 #library(lmerTest)
 names(colsha)
 
@@ -203,6 +204,11 @@ anova(drybiomass_model1,drybiomass_model3)
 drybiomass_model4 <- lmer(biomass_dry_leaf ~ trt + (0+trt|genotype),
                           data = colsha, REML = FALSE)
 anova(drybiomass_model1,drybiomass_model4)
+
+
+
+
+
 
 #floweringtime
 boltdays_model1 <- lmer(boltdays ~ trt + (1|shelf) + (0+trt|genotype), 
@@ -254,6 +260,7 @@ names(models) <- varlist
 #print a few traits to take a look
 coef(models[[1]])$genotype
 coef(models[[2]])$genotype
+coef(models[[12]])$genotype
 
 varlist
 
